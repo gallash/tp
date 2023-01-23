@@ -7,7 +7,7 @@ import pytest
 from src import main
 
  
-ALIAS = "alias.yaml"
+ALIAS = "aliases.yaml"
 
 class TestMain_SaveCurrentDirectory:
     # @pytest.mark.skip(reason="This already works, and will not suffer changes later on")
