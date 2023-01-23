@@ -3,7 +3,7 @@ import sys
 import yaml
 
 
-ALIAS = "alias.yaml"
+ALIAS = "aliases.yaml"
 
 def read_alias():
     args_list = sys.argv[1:]  # Not including the `main.py` itself
