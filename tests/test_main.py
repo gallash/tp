@@ -8,13 +8,14 @@ from src import main
 
  
 ALIASES = "aliases.yaml"  # from the root dir
+ROOT_DIR = os.path.abspath('.')
 
 class TestMain_SaveCurrentDirectory:
     # @pytest.mark.skip(reason="This already works, and will not suffer changes later on")
     def test_creates_aliases_file_when_there_is_none(self):
         # If there is no 'aliases.yaml', check if main.py creates one
         if os.path.isfile(ALIASES) is False:
-            main.read_alias()
+            main.read_aliases()
         assert os.path.isfile(ALIASES)
 
     # @pytest.mark.skip(reason="This already works, and will not suffer changes later on")
@@ -46,6 +47,13 @@ class TestMain_SaveCurrentDirectory:
         # Checks whether passing '..' will make the system tp the user to one directory above
         main.tp('..')
         assert os.getcwd() == os.path.abspath('..')
+     
+        # Return to the `tp`s directory 
+        main.tp(ROOT_DIR)
+        assert os.getcwd() == ROOT_DIR
+
+    def test_input_values_aliases_file_with_correct_format(self):
+        pass
 
     def test_removes_the_selected_alias(self):
         pass
